@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web - JavaScript</title>
+</head>
+<body>
+    <h1>순건이의 자바스크립트 연습</h1>
+    <input type="button"
+    value= "Night"
+    onclick= "
+    if(document.querySelector('body').style.background === 'white'){
+        document.querySelector('body').style.background= 'black';
+        document.querySelector('body').style.color= 'white';
+        this.value = 'Day';
+    }else{
+        document.querySelector('body').style.background= 'white';
+        document.querySelector('body').style.color= 'black';
+        this.value = 'Night'
+    }">
+    
+    <p>안녕하세요. 이 페이지는 버튼을 누르면 모드가 변하는 페이지입니다</p>
+</body>
+</html>
