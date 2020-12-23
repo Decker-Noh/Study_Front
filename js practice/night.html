@@ -3,22 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Web - JavaScript</title>
+    <style>
+    </style>
+    <script>
+        function DayHandler(self) {
+            if(document.querySelector('body').style.background === 'white'){
+            document.querySelector('body').style.background= 'black';
+            document.querySelector('body').style.color= 'white';
+            var a_tag = document.querySelectorAll('a');
+            i = 0
+            while(i < a_tag.length){
+                a_tag[i].style.color= 'red';
+                i = i + 1;
+            }
+
+            self.value = 'Day';
+            }else{
+                document.querySelector('body').style.background= 'white';
+                document.querySelector('body').style.color= 'black';
+                var a_tag = document.querySelectorAll('a');
+                i = 0
+                while(i < a_tag.length){
+                    a_tag[i].style.color= 'blue';
+                    i = i + 1;
+                }
+                self.value = 'Night'
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>순건이의 자바스크립트 연습</h1>
     <input type="button"
     value= "Night"
-    onclick= "
-    if(document.querySelector('body').style.background === 'white'){
-        document.querySelector('body').style.background= 'black';
-        document.querySelector('body').style.color= 'white';
-        this.value = 'Day';
-    }else{
-        document.querySelector('body').style.background= 'white';
-        document.querySelector('body').style.color= 'black';
-        this.value = 'Night'
-    }">
-    
+    onclick= "DayHandler(this)">
+
     <p>안녕하세요. 이 페이지는 버튼을 누르면 모드가 변하는 페이지입니다</p>
+    <a href="1.html" >이것도</a>
+    <a href="2.html" >색이 변해요</a>
 </body>
 </html>
