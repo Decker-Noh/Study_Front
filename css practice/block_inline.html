@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>block_inline_box</title>
+    <style>
+        .block1{
+            width: 80px;
+            height: 80px;
+            background-color: purple;
+        }
+        .block2{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="block1" style="margin-right: auto;">block_left</div>
+    <div style="text-align: left;">
+        <div class="block2" style="display: inline-block; text-align: right;">inline_left</div>
+    </div>
+    <br>
+    <div class="block1" style="margin-left: auto;">block_left</div>
+    <div style="text-align: right;">
+        <div class="block2" style="display: inline-block; text-align: right;">inline_left</div>
+    </div>
+    <br>
+    <div class="block1" style="margin-left: auto; margin-right: auto;">block_left</div>
+    <div style="text-align: center;">
+        <div class="block2" style="display: inline-block; text-align: right;">inline_left</div>
+    </div>
+</body>
+</html>

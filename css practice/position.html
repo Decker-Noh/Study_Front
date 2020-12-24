@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>position</title>
+    <style>
+        .static{
+            height: 100px;
+            width: 100px;
+            background-color: purple;
+            text-align: center;
+            line-height: 100px;
+        }
+        .relative{
+            position: relative;
+            left: 100px;
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            text-align: center;
+            line-height: 100px;
+        }
+        .absolute{
+            position: absolute;
+            left: 100px;
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            text-align: center;
+            line-height: 100px;
+        }
+        .fixed{
+            position: fixed;
+            bottom: 0px;
+            right: 0px;
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="static">static</div>
+    <div class="relative">relative</div>
+    <div class = "static" style="position:relative">
+        <!-- position:absolute;는 부모요소가 static이어서는 안된다 -->
+        부모
+        <div class="absolute">
+            자식
+        </div>
+    </div>
+    
+    <div class="fixed">
+        fixed
+    </div>
+</body>
+</html>

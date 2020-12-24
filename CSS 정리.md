@@ -52,6 +52,9 @@
 - 박스의 컨트롤
   - height, width 로 높이와 넓이 조절
   - padding, border, margin을 이용해 박스 안, 테두리, 박스 밖 사이즈를 조절.
+- block과 inline의 가운데 정렬
+  - block는 남은 여백을 마진을 주기때문에  margin-right:auto, margin-left:auto로 정렬
+  - inline은 text-align: 으로 정렬 / 부모 태그에 써서 안을 적용해야하나?
 
 #### 3. 플렉서블 박스
 
@@ -94,3 +97,17 @@ place-items : align-items 와 justify-items의 단축 속성
 
 - 미디어쿼리란?
   - 조건에  따라 레이아웃을 달라지게 하는 것.
+
+#### 6. 포지션
+
+- static : 디폴트 값
+  - 기본적인 요소의 배치 순서(좌측 상단)
+- relative(상대위치) -> static 위치를 기준 top, bottom, left, right로 이동
+- absolute(절대위치) -> 부모 태그를 기준으로 이동 -> 이동 후 기존 공간 가출
+- fixed(절대 위치) -> 브라우저를 기준으로 이동
+
+#### 7. float
+
+- 박스모델에서 벗어나게 해줌.(배치의 흐름을 바꿔버림)
+- 왼쪽이나 오른쪽으로만 갈 수 있음.
+- clear로 탈출할 수 있음.
