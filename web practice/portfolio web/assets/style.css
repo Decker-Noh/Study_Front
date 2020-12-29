@@ -1,0 +1,48 @@
+body {
+    margin: 0;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1rem 1rem;
+    font-size: 2rem;
+    font-family: 'Langar', cursive;
+    display: flex;
+    justify-content: space-between;
+}
+header span {
+    font-size: 1rem;
+    font-family: 'Yellowtail', cursive;
+}
+.hambur {
+    margin-top: 0.4rem;
+    margin-right: 2rem;
+    font-size: 1.8rem;
+}
+
+a {
+    text-decoration: none;
+    color: #1f2247;
+}
+/* background */
+section {
+    background-attachment: fixed;
+    color: black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 1000px;
+}
+.section1 {
+    background-image: url("../images/people.jpg");
+    filter: drop-shadow(10%);
+}
+.section2 {
+    background-image: url("../images/computer.jpg");
+}
+.section3 {
+    background-image: url("../images/office.jpg");
+}
