@@ -221,5 +221,43 @@ const preIncrement = counter ++;
     }
     ```
 
-- 반복문
+- 반복문 (while)
 
+```
+// 조건 확인 후 반복
+while (조건) {
+	
+}
+```
+
+- do while loop
+
+```
+// 반복 후 조건
+do {
+	console.log(`dowhile: ${}`);
+	i--
+} while (i>0);
+```
+
+- for
+
+```
+//for loop, for(begin; condition; step)
+for (let i = 3; i>0' i= i-2){
+	console.log("ㅎㅎ")
+}
+```
+
+- break, continue
+
+```
+break -> 반복문 탈출
+continue -> 계속
+```
+
+
+
+##### 4.3 Function
+
+- 
