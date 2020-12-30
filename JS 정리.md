@@ -260,4 +260,151 @@ continue -> 계속
 
 ##### 4.3 Function
 
-- 
+- Function declaration
+
+  ```
+  function name(param) {
+  	body
+  	return;
+  };
+  //한가지 함수는 한가지만 하도록 만들 것
+  //naming은 동사형태로
+  //js에서 function은 object, 변수 할당, 리턴 가능
+  //parameters -> premitive param, object param
+  //Default parameters(added in ES6) -> 파라미터가 복수인 경우 undefined가 발생하는데 undefined를 대체할수 있는 것을 할당할수 있음
+  //Rest parameters(added in ES6) -> 파라미트 여러개(파이썬 *파라미터랑 비슷한듯)
+  //Return a value -> return 값이 없는 함수는 undefined
+  
+  //Early return, early exit
+  //조건이 없는 경우 빨리 리턴하는게 좋다
+  
+  ```
+
+- First-class function -> 함수를 변수에 할당하는 것.
+
+  - anonymous function -> 이름이 없는 함수
+
+- First-class function과 function declaration의 차이
+
+  - function declaration은 선언 후 호이스팅이 되어서 제일 위로 올라간다.
+
+- callback function
+
+  - 함수 파라미터로 다른 함수에 전달되는 함수
+
+- Arrow function
+
+  - 함수를 간단하게 쓰게 해줌
+  - always anonymous
+
+  ```
+  const simplePrint = () => console.log('simplePrint')
+  const add = (a,b) => a + b;
+  블록을 쓰면 return을 써줘야함.
+  ```
+
+- IIFE : Immediately Invoked Function Expression
+
+```
+(function hello() {
+	console.log('IIFE');
+})();
+함수 선언과 바로 호출하는 방식
+```
+
+##### 4.4 class and object
+
+- class : template
+- object : instance of a class
+- JavaScript class
+  - introduced in ES6
+  - syntactical sugar over prototype-based inheritance
+
+- class 선언
+
+  ```
+  class Person {
+  	constructor(name, age) {
+  		this.name = name;
+  		this.age = age;
+  	}
+  	
+  	speak(){
+  		console.log(this.name);
+  	}
+  }
+  ```
+
+- object 생성
+
+  ```
+  const soon = new Person('soon', 28);
+  console.log(soon.name);
+  console.log(soon.age);
+  ```
+
+- Getter and Setters -> 접근자 프로퍼티
+
+``` 
+get age() {
+	return this._age
+}
+set age(value) {
+	
+	this._age = value;
+}
+get -> 사용자가 호출할때
+set -> 새로운 값을 받을때
+
+```
+
+- public and private(최신추가)
+
+  ```
+  class Experiment {
+  	publicField = 2;
+  	#privateField = 0
+  };
+  const experiment = new Experiment();
+  console.log(experiment.publicField);2
+  console.log(privateField); undefined
+  ```
+
+- static(최신,추가)
+
+```
+클래스 자체를 출력해야 사용할 수 있는 것.
+```
+
+- 상속과 다양성
+
+```
+Inheritance
+class Shape {
+	contructor(width, height, color) {
+		this.width = width;
+		this.height = height;
+		this.color = color;
+	}
+	draw() {
+		console.log(`drawing ${this.color} color of`);
+	}
+	getArea() {
+		return width * this.height;
+	}
+}
+//상속
+class Rectangle extends Shape {}
+
+const rectangle = new Rectangle(20, 20, 'blue');
+rectangle.draw();
+// 다양성
+class Triangle extends Shape{
+	getArea() {
+		return (this.width * this.height) / 2;
+	}
+}
+```
+
+- instanceof
+  - 오브젝트가 해당 클래스로 만들어진 것인지 확인하는 함수
