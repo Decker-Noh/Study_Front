@@ -6,12 +6,12 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    width: 100%;
-    padding: 1rem 1rem;
+    width: 100vw;
     font-size: 2rem;
     font-family: 'Langar', cursive;
     display: flex;
     justify-content: space-between;
+    padding: 1rem 1rem 1rem 1.4rem;
 }
 header span {
     font-size: 1rem;
@@ -19,7 +19,7 @@ header span {
 }
 .hambur {
     margin-top: 0.4rem;
-    margin-right: 2rem;
+    margin-right: 4rem;
     font-size: 1.8rem;
 }
 
@@ -33,8 +33,9 @@ section {
     color: black;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 1000px;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
 }
 .section1 {
     background-image: url("../images/people.jpg");
