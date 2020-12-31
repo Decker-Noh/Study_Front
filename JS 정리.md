@@ -408,3 +408,259 @@ class Triangle extends Shape{
 
 - instanceof
   - 오브젝트가 해당 클래스로 만들어진 것인지 확인하는 함수
+
+#### 4.5 object
+
+```
+const name = 'soon';
+const age = 4;
+const soon = {name : 'soon', age : 4};
+
+//object literal syntax
+const obj1 = {};
+//object constructor syntax
+const obj = new Object();
+soon.hasjob = true;
+// js는 동적언어이기 때문에 오브젝트의 내용을 뒤에서도 추가할수 있음.
+// 삭제도 가능
+
+delete soon.age
+```
+
+```
+//Computed properties
+console.log(soon['name']); // 키값은 스트링 타입으로 받아와야한다.
+//런타임에서 키값이 결정될 때 유용.
+```
+
+````
+//Property value shorthand
+//constructor
+function Person(name, age) {
+	this.name = name;
+	this.age = age;
+};
+```
+
+```
+in operator: property existence check (key in obj)
+console.log('name' in soon);
+//soon
+```
+
+```
+//for..in vs for..of
+//for (key in obj)
+for (key in ellie) {
+	console.log(key);
+}
+
+// for(value of iterable)
+const array = [1,2,3,4,5];
+for (value of array) {
+	console.log(value);
+}
+```
+
+```
+Fun cloning
+const user = {name : 'soon', age: '28'};
+const user2 = user;
+user2.name = 'coder'
+console.log(user);
+//name : coder 로 변경
+
+//old way
+const user3 = {}
+for (key in user) {
+	user3[key] = user[key];
+}
+
+//new way
+//Object.assign(target: T, source: U)
+const user4 = Object.assgin({}, user);
+```
+
+#### 4.6 Array
+
+```
+//Declaration
+const arr1 = new Array();
+const arr2 = [1, 2];
+//Index position
+const fruits = ['사과', '바나나'];
+console.log(fruits);
+console.log(fruits.length);
+console.log(fruits[0])
+```
+
+```
+///Looping over an array
+//for of
+for (fruit of fruits) {
+	console.log(fruit);
+}
+//forEach
+fruits.forEach(function (fruit, index, array) {
+	console.log(fruit, index, array)
+})
+```
+
+```
+//Addtion, deletion, copy
+//push 뒤에 더하기, index로도 가능
+//pop 뒤에 빼기, index로도가능
+fruits.push('복숭아');
+frutis.pop();
+//unshift 앞에 넣기
+//shift 앞에 빼기
+fruits.unshift()
+fruits.shift()
+
+//** shift, unshift 는 느리다!
+//why? 앞에 인덱스를 건드리면 뒤에 있는 인덱스를 모두 건드려야하기때문에
+
+//인덱스로 제거
+//splice
+fruits.splice(어디부터 지울것인지, 몇개나 지울것인지(설정안하면 첫번째인자부터 모두 삭제))
+//지우고 추가도 가능
+fruits.splice(1,1,'사과')
+1번째 인덱스부터 1개 삭제후 그 자리에 '사과' 추가
+지우고 지운 부분을 리턴하는듯?
+
+//combine two arrays
+const furits2 = ['사과', '바나나'];
+const newFruits = fruits.concat(fruits2);
+
+//searching
+console.log(fruits.indexOf('사과')); //없으면 -1로 출력
+//있는지 없는 지 확인
+console.log(fruits.includes('사과'));
+//boolean으로 나옴
+
+//lastIndexOf
+//제일 마지막에 등장하는 인덱스 등장
+console.log(fruits.lastIndexOf('사과'));
+```
+
+
+
+```
+//유용한 배열 함수들
+//1. join()
+//fruits.join(); // 배열 문자열로 만들기
+//2. split()
+//문자열을 배열로 만들기
+//첫번째인자 : 구분자, 두번째인자 : 어디까지 받을지
+//3. reverse()
+//배열 거꾸로
+//새로 변수 할당해도 얕은 복사, 원본이 변함
+//4. slice()
+//배열의 특정한 부분을 리턴하는 함수
+// start와 end 부분을 지정
+```
+
+
+
+```;
+Class Student {
+	constructor(name, age, enrolled, score) {
+		this.name = name;
+		this.age = age;
+		this.enrolled = enrolled;
+		this.score = score;
+	}
+}
+const students = [
+	new Student('A',29, true, 45),
+	new Student('B',28, false, 80),
+	new Student('C',30, true, 90),
+	new Student('D',40, true, 66),
+	new Student('E',18, true, 88),
+];
+```
+
+```
+//find()
+const result = students.find((student) => {
+	return student.score === 90;
+});
+```
+
+```
+//filter()
+const result = students.filter((student) => student.enrolled);
+//원하는 값만 받아와서 배열을 만들 수 있음
+```
+
+```
+//map()
+const result = students.map((student) => student.score);
+//콜백함수를 통해 각 데이터에 접근하여 변환시킨 배열을 만들수 있음.
+```
+
+```
+//some()
+const result = students.some((student) => student.score < 50);
+//요소 하나라도 조건에 만족되면 true , boolean값을 리턴
+//every()
+const result = students.every((student) => student.score < 50);
+//모든 요소가 조건을 만족해야 true,
+```
+
+```
+//reduce()
+const result = students.reduce((prev, curr) => {
+	return curr
+})
+//curr -> 요소를 하나씩 돈다.
+//prev -> 이전 리턴 값을 저장한다
+```
+
+#### 4.7 JSON
+
+- 서버통신방법의 종류 : XML, fetch() API(최신), JSON
+- JSON을 설명하는 특성
+  - simlest data interchange format - 데이터를 주고받을때 쓸쑤 있는 가장 단순한 포맷
+  - lightweight tex-based structure - 텍스트 기반 가벼움
+  - easy to read - 읽기 편하고
+  - key-value pairs - 키와 벨류로 이루어짐
+  - used for serialization and transmission of data between the network the network connection - 서버와 주고받을때 직렬화를 위해 쓴다
+  - independent programming language and platform - 언어나 플랫폼에 상관없이 독립적이다.
+- json
+  - 어떻게 직렬화시키고 직렬화를 풀 것인가?
+
+```
+//1. Object to JSON
+//stringfy(obj)
+let json = JSON.stringify(true);
+console.log(json);
+json = JSON.stringify(['apple', 'banana']);
+console.log(json); -> ["apple", "banana"]
+
+const rabbit = {
+	name: 'soon',
+	color: 'white',
+	size: 'null',
+	birthDate: new Data();
+	jump: () => {
+		console.log('jump')
+	},
+};
+//원하는 프로퍼티만 전달 가능
+json = JSON.stringify(rabbit, ['name'])
+
+//2. JSON to Object
+json = JSON.stringify(rabbit)
+const obj = JSON.parse(json)
+
+직렬화 후 다시 비정렬화를 시켜도 함수는 살아나지 않는다. parse에 콜백함수를 이용해서 해결
+```
+
+
+
+* 오버로딩이란 ? : 같은 함수명임에도 인자와 인자의 개수에 따라 다른 함수를 호출
+
+
+
+- 유용한 사이트 : json diff, json beautifier(포맷이뻐짐), json parser(오브젝트 어떻게 되는지 확인), json validator(json 문법 오류 찾아줌)
