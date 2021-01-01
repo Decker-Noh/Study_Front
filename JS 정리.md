@@ -664,3 +664,145 @@ const obj = JSON.parse(json)
 
 
 - 유용한 사이트 : json diff, json beautifier(포맷이뻐짐), json parser(오브젝트 어떻게 되는지 확인), json validator(json 문법 오류 찾아줌)
+
+#### 4.8 동기와 비동기
+
+- 동기 : 요청과 결과가 한 자리에서 동시에 일어남
+- 비동기 : 요청과 결과가 한 자리에서 일어나지 않음
+
+#### 4.9 callback
+
+- 
+
+#### 4.10 Promise
+
+- 콜백지옥에서의 탈출
+- state : pending -> fulfiled or rejected
+- producer vs consumer
+
+
+
+- producer
+
+// when new Promise is created, the executor runs automatically
+
+```
+constt promise = new Promise((resoleve, recect) =>{
+	//doing some heavy work (network, read files)
+	console.log('doing something...')
+	setTimeout(() => {
+		resolve('soon');
+		reject(new Error('no network'));
+		
+	}, 2000);
+});
+```
+
+- Consumers: then, catch, finally
+
+```
+promise
+	.then((value) => {
+		console.log(value);
+	})
+	.cathch((error) => {
+		console.log(error)
+	})
+//then은 값이 성공적으로 전달된 경우 값을 가저옴
+//catch는 reject의 값을 가저옴
+
+```
+
+- finally()
+
+```
+.finally(() =>{
+	console.log('finally')
+})
+//성공여부에 상관없이 마지막에 실행하고 싶은 내용을 쓸때
+```
+
+
+
+#### 4.11 async, await(syntactic sugar)
+
+- promise chain을 직관적이고 동기적으로 보이게 만들어주는 아이.
+- 무조건 async, await로 꾸며야 한다는 것이 아님. 상황에 따라 골라 쓰자
+
+1. async
+
+```
+//기존 프로미스 방식
+function fetchUser() {
+	//do network request in 10 sec...
+	return new Primise((resolve, reject) =>{
+		resolve('soon');
+	});
+}
+
+const user = fetchUser()
+
+console.log(user)
+
+//async -> promise를 안쓰고 리턴만 해도 프로미스 처리를 해준다.
+async function fetchUser() {
+	//do network request in 10 sec...
+	return 'soon'
+}
+
+const user = fetchUser()
+
+console.log(user)
+
+```
+
+
+
+2. await
+
+```
+///await
+function delay(ms) {
+	return new Promise(resolve => setTimoout(resolve, ms));
+}
+
+async function getApple() {
+	await delay(3000);
+	return 'heart';
+}
+
+async function getBanana() {
+	awiat delay(3000);
+	return 'banana';
+}
+//
+function getBanana() {P}
+```
+
+3. useful Promise APIs
+
+```
+//all
+functon pickAllFruits() {
+	return Promise.all([getApple(), getBanana()])
+	.then(fruits => fruits.join(' + '))
+}
+pickAllFruits()
+	.then(console.log);
+//race
+function pickOnlyOne() {
+	return Promise.race([getApple(), getBanana()]);
+}
+pickOnlyOne()
+	.then(console.log);
+```
+
+
+
+```
+엘리 강의 끝
+댓글 정리노트 주소 : https://www.notion.so/07dfed016e914c3a8612fc76dd1542f0?v=c6feaeb5b46e4fdeb1e756113cb529c1
+```
+
+
+
