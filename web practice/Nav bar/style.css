@@ -49,7 +49,7 @@ a {
 
 @media screen and (max-width: 768px) {
     .navbar {
-        flex-direction: column;
+        flex-direction: colzumn;
     }
     .nav_logo {
         align-self: flex-start;
