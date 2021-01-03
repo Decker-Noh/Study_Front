@@ -33,9 +33,10 @@ body {
 }
 .modal_content {
     background-color: white;
-    padding: 50px, 100px;
+    padding-bottom: 1vh;
     text-align: center;
     position: relative;
+    border-radius: 10px;
     width: 10%;
 }
 .hidden {
