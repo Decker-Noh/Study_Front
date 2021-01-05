@@ -804,5 +804,4 @@ pickOnlyOne()
 댓글 정리노트 주소 : https://www.notion.so/07dfed016e914c3a8612fc76dd1542f0?v=c6feaeb5b46e4fdeb1e756113cb529c1
 ```
 
-
-
+velog upload
