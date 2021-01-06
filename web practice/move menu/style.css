@@ -1,0 +1,33 @@
+body {
+    margin:  0;
+    padding: 0;
+}
+header {
+    position: fixed;
+    width: 100%;
+    background-color:chocolate;
+    display: flex;
+    justify-content: flex-end;
+    min-height: 10px;
+    height: 2.7rem;
+}
+#menu {
+    font-size: 1.8rem;
+    margin: 0.5rem 1rem;
+    cursor: pointer;
+    
+}
+#menu:hover {
+    font-size: 2rem;
+}
+.menubar {
+    position: fixed;
+    top:2.7rem;
+    right: 0;
+    background-color: chocolate;
+    height: 100vw;
+    width: 200px;
+}
+.menuhide {
+    display:none;
+}
