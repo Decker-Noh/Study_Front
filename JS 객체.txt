@@ -1,0 +1,66 @@
+> JavaScript는 웹 브라우저 기반의 객체 위에서 동작한다. 그렇다면 JavaScript는 웹 브라우저에 어떤 식으로 접근을 할까?
+
+### BOM이란?
+
+웹 서비스는 웹 브라우저를 바탕으로 실행이 된다. 이 브라우저와 관련된 객체들의 집합을 브라우저 객체 모델(Browser Object Model)이라고 한다. 우리는 이 BOM을 통해 Browser와 관련된 기능들을 구성하고, DOM 또한 이 BOM 중 하나이다.
+
+### DOM이란?
+
+DOM은 Document Object Model의 약자이다. 그렇다면 Document Object, 즉 문서 객체란 무엇일까?
+문서 객체란 HTML과 CSS의 요소와 속성들로 만들어진 태그(<>)들을 JavaScript가 이용할 수 있는 객체로 만든 것이다. 앞서 웹 브라우저가 HTML 페이지를 인식하는 방식을 의미하기도 한다.
+
+#### DOM Tree란?
+
+DOM은 tree 형식의 자료구조를 가지고 있다.
+root node에서 시작하여 거꾸로 된 나무의 모양처럼 아래로 퍼저나가는 형태이다.
+그리고 우리는 상대적으로 위쪽의 node를 부모(parent) 노드, 아랫쪽 노드를 자식(child) 노드라고 부른다. root node는 위쪽의 부모가 없으니 parent가 없는 node가 될 것이다. 또한 node가 끝나는 부분의 node는 자식이 없는 node일 것이다. 우리는 이런 자식이 없는 node를 leaf node라고 부른다. 이렇듯 DOM Tree는 root로 시작해 leaf로 끝이 난다.
+
+#### Node란?
+
+위에서 DOM을 구성하는 Tree들의 구성 요소를 우리는 모두 node라고 칭했다. 그렇다면 node란 무엇일까? 
+DOM을 구성하는 모든 요소, Tag(head,body,title,scipt 등) 뿐 아니라 태그 안의 텍스트나 속성 등도 모두 node에 속한다.
+예를 들어 태그(Tag)를 요소(Element) 노드라고 부르고, 그 안의 글자를 Text 노드라고 부르기도 한다.
+
+그리고 우리는 이렇게 구성된 문서객체를 JavaScript로 접근하여 요소들을 조작, 생성, 삭제할 수 있다.
+
+#### DOM은 어떻게 사용할까?
+
+##### window는 최상위 객체이다.
+
+window객체는 전역 객체로 최상위에 존재하는 객체이다. 
+다양한 함수, 객체, 이름공간(우리가 지정하는 변수)들을 가지고 있다.
+
+##### DOM의 접근
+
+조작을 위해서 어떤 노드에 접근할 것인지 선택할 필요가 있다.
+
+`document.getElementByID(id)` 
+ID를 통해 노드에 접근
+`document.querySelector(selector)` 
+selecor를 통해 노드에 접근(ID, Class, tag를 구분)
+
+_live collection : array에 실시간 반영으로 조작에 문제가 생길 수도 있음_
+
+`document.getElementsByTagName(class)` 노드들로 구성된 array를 반환
+`document.getElementsByClassName(class)` 노드들로 구성된 array를 반환
+
+_non-live collection_
+
+`document.querySelectorAll(selector)` 노드들로 구성된 array를 반환
+
+##### Node의 생성
+
+`document.createElement(tagName)` 특정 태그를 생성
+`document.createTextNode(text)` 텍스트 노드 생성
+`parent.appendChild(Node)` 자식요소로 추가
+`parent.removeChild(Node)` 요소를 제거
+
+##### 이벤트란?
+
+브라우저에서 load, copy, mouseover, click, submit에 이벤트를 발생시킬 수 있다.
+
+`target.addEventListener(이벤트 유형, 핸들러(콜백함수), (버블링,캡처링))`
+
+※ 캡처링, 버블링이란?
+
+이벤트 전파는 최상위 객체인 Window부터 시작된다. 이때 타겟까지 차례대로 이벤트가 전달되게 되는데 내려가는 과정을 캡처링, 올라가는 가정을 버블링이라고 한다.
