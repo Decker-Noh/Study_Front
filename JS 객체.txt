@@ -64,3 +64,65 @@ _non-live collection_
 ※ 캡처링, 버블링이란?
 
 이벤트 전파는 최상위 객체인 Window부터 시작된다. 이때 타겟까지 차례대로 이벤트가 전달되게 되는데 내려가는 과정을 캡처링, 올라가는 가정을 버블링이라고 한다.
+
+
+
+### this란?
+
+
+
+JS는 객체 지향 언어(OOP)이다.
+
+this란 어떤 object를 지칭한다,
+
+method => 객체 안의 함수
+
+기본적으로 this는 window를 지칭.
+
+예외 2가지
+
+1. method 안의 this -> method가 속해 있는 객체를 표시함.(최상위 아님)
+   - 익명함수는 window객체를 표시해버리기 때문에 .bind(this)로 묶어줘야함. 이걸 쓰기 싫어서 화살표 함수가 만들어짐. 화살표 함수는 익명함수에도 this를 바인드해준다? 객체 안에 있더라도 콜백(익명함수)는 this가 상위 객체가 아닌 window를 표시한다. 
+2. 생성자 함수 안의 this
+
+
+
+### AJAX
+
+ajax -> JS로 비동기 요청을 보낸다.
+
+xhr(요것도 비동기요청)
+
+블로킹 논블로킹
+
+promise => 성공/실패
+
+```
+axios.get('url')
+	.then(function (res) {return 뭐시기}) ..성공했을 경우
+	.then(fucntion (뭐시기) {return 거시기})//리턴값이 밑으로 내려감. 콜백지옥의 해소
+	.then(fucntion (거시기) {console.log(거시기)})
+	.catch(console.log('실패')//실패의 경우
+```
+
+site - koreaJSON
+
+```
+//get에 데이터 넣어서 보낼때는 쿼리스트링을 써서 보낸다
+//1. 템플릿 리터럴
+axios.get('url?key=value')
+	.then()
+	.catch()
+//서버에서 받을때
+request.GET.get('key')
+
+//2. 2번째 인자로 보내기
+axios.get('url', {
+	params: {
+		key: value,
+	}
+})
+	.then()
+	.catch()
+```
+

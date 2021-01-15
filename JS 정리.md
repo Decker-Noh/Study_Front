@@ -687,7 +687,7 @@ const obj = JSON.parse(json)
 // when new Promise is created, the executor runs automatically
 
 ```
-constt promise = new Promise((resoleve, recect) =>{
+const promise = new Promise((resoleve, recect) =>{
 	//doing some heavy work (network, read files)
 	console.log('doing something...')
 	setTimeout(() => {
